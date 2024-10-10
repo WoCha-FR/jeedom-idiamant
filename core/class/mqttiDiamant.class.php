@@ -60,8 +60,48 @@ class mqttiDiamant extends eqLogic {
     $eqLogicId = $values['id'];
     $eqLogic = self::byLogicalId($eqLogicId, __CLASS__);
     // Nettoyage des valeurs inutiles
-    unset($values['id'], $values['name'], $values['type'], $values['reachable']);
-    log::add(__CLASS__, 'debug', json_encode($values));
+    unset($values['id'], $values['name'], $values['type']);
+    // Parcours des valeurs
+    foreach ($values as $key => $value) {
+      log::add(__CLASS__, 'debug', '[' . __FUNCTION__ . '] ' . __('Mise à jour de ', __FILE__) . $key . __(' dans le module ', __FILE__) . $eqLogicId);
+      $eqLogic->checkAndUpdateCmd($key, $value);
+    }
+  }
+
+  /* Configuration Equipement depuis config file*/
+  public function postSave() {
+    if ($this->getConfiguration('applyDevice') != $this->getConfiguration('device')) {
+      $this->setConfiguration('applyDevice', $this->getConfiguration('device'));
+      $this->save();
+      if ($this->getConfiguration('device') == '') {
+        return true;
+      }
+      $device = self::devicesParameters($this->getConfiguration('device'));
+      if (!is_array($device)) {
+        return true;
+      }
+      $this->import($device,true);
+      log::add(__CLASS__, 'info', '[' . __FUNCTION__ . '] ' . __('Création des commandes pour un module de type ', __FILE__) . $this->getConfiguration('device'));
+    }
+  }
+
+  public static function devicesParameters($_device = '') {
+    $return = array();
+    $files = ls(__DIR__.'/../config/devices', '*.json', false, array('files', 'quiet'));
+    foreach ($files as $file) {
+      try {
+        $return[str_replace('.json','',$file)] = is_json(file_get_contents(__DIR__.'/../config/devices/'. $file),false);
+      } catch (Exception $e) {
+        
+      }
+    }
+    if (isset($_device) && $_device != '') {
+      if (isset($return[$_device])) {
+        return $return[$_device];
+      }
+      return array();
+    }
+    return $return;
   }
 
   /* Images */
