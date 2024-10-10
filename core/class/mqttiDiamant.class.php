@@ -35,25 +35,25 @@ class mqttiDiamant extends eqLogic {
         $_values['name'] = $_values[$_key];
       }
       log::add(__CLASS__, 'debug', json_encode($_values));
+      // Nouvel appareil ?
+      $eqLogic = self::byLogicalId($_key, __CLASS__);
+      // Création si besoin
+      if (!is_object($eqLogic)) {
+        $eqLogic = new mqttiDiamant();
+        $eqLogic->setIsVisible(1);
+        $eqLogic->setIsEnable(1);
+        $eqLogic->setName($_values['name']);
+      }
+      // Paramétrages
+      $eqLogic->setEqType_name(__CLASS__);
+      $eqLogic->setLogicalId($_key);
+      $eqLogic->setConfiguration('device', $_values['type']);
+      $eqLogic->setStatus('warning', !$_values['reachable']);
+      // Sauvegarde
+      $eqLogic->save();
+      // Traitement des données
+      self::handleValues($_values);
     }
-    // Nouvel appareil ?
-    $eqLogic = self::byLogicalId($_key, __CLASS__);
-    // Création si besoin
-    if (!is_object($eqLogic)) {
-      $eqLogic = new mqttiDiamant();
-      $eqLogic->setIsVisible(1);
-      $eqLogic->setIsEnable(1);
-      $eqLogic->setName($_values['name']);
-    }
-    // Paramétrages
-    $eqLogic->setEqType_name(__CLASS__);
-    $eqLogic->setLogicalId($_key);
-    $eqLogic->setConfiguration('device', $_values['type']);
-    $eqLogic->setStatus('warning', !$_values['reachable']);
-    // Sauvegarde
-    $eqLogic->save();
-    // Traitement des données
-    self::handleValues($_values);
   }
 
   private static function handleValues($values) {

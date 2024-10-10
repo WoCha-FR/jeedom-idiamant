@@ -14,6 +14,10 @@
 * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
 */
 
+$('.eqLogicAttr[data-l1key=configuration][data-l2key=device]').off('change').on('change', function () {
+  $("#img_idiamantModel").attr('src','plugins/mqttiDiamant/core/config/devices/' + $(this).value() + '.png')
+})
+
 $("#table_cmd").sortable({
   axis: "y",
   cursor: "move",

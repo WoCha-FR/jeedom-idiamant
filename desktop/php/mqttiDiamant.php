@@ -25,7 +25,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 
 <div class="row row-overflow">
   <div class="col-xs-12 eqLogicThumbnailDisplay">
-    <legend><i class="fas fa-cog"></i>  {{Gestion}}</legend>
+    <legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
     <div class="eqLogicThumbnailContainer">
       <div class="cursor eqLogicAction logoSecondary" data-action="gotoPluginConf">
         <i class="fas fa-wrench"></i>
@@ -143,7 +143,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
               </fieldset>
             </form>
             <center>
-              <img src="<?php echo $plugin->getPathImgIcon(); ?>" id="img_netatmoModel" style="height : 250px;margin-top : 60px" />
+              <img src="<?php echo $plugin->getPathImgIcon(); ?>" id="img_idiamantModel" style="height : 250px;margin-top : 60px" />
             </center>
           </div>
         </div>
