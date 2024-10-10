@@ -23,8 +23,9 @@
       "type": "action",
       "subType": "slider",
       "value": "position",
+      "generic_type": "FLAP_SLIDER",
+      "unite" : "%",
       "configuration": {
-        "cmdWriteValue": "#slider#",
         "minValue": "0",
         "maxValue": "100"
       },

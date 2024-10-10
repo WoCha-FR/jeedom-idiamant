@@ -265,4 +265,21 @@ class mqttiDiamant extends eqLogic {
 }
 
 class mqttiDiamantCmd extends cmd {
+  public function execute($_options = array()) {
+    if ($this->getType() != 'action') {
+      return;
+    }
+    $eqLogic = $this->getEqLogic();
+    $subTopic = $this->getLogicalId();
+    $rootTopic = config::byKey('mqtt::topic', 'mqttiDiamant', 'idiamant') . '/' . $subTopic;
+    // Valeur
+    switch ($this->getSubType()) {
+      case 'slider':
+        $value = strval(floor($_options['slider']));
+        break;
+    }
+    // LOG
+    log::add('mqttiDiamant', 'debug', 'ACTION: ' . json_encode($_options));
+    log::add('mqttiDiamant', 'info', 'ACTION: ' . $rootTopic . '/' . $subTopic . ' => ' . $value);
+  }
 }
