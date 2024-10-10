@@ -18,6 +18,27 @@
       }      
     },
     {
+      "name": "setPosition",
+      "logicalId" : "setposition",
+      "type": "action",
+      "subType": "slider",
+      "value": "position",
+      "configuration": {
+        "cmdWriteValue": "#slider#",
+        "minValue": "0",
+        "maxValue": "100"
+      },
+      "template": {
+        "dashboard": "core::default",
+        "mobile": "core::default"
+      },
+      "display": {
+        "parameters": {
+          "step": "1"
+        }
+      }
+    },
+    {
       "name":"Statut RF",
       "logicalId" : "rfstatus",
       "type":"info",
