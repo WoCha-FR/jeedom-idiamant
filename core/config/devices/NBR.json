@@ -1,1 +1,21 @@
-{}
+{
+  "name" : "Volet",
+  "commands" : [
+    {
+      "name":"position",
+      "logicalId" : "position",
+      "type":"info",
+      "subType":"numeric",
+      "generic_type": "FLAP_STATE",
+      "unite" : "%",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "configuration":{
+        "minValue" : 0,
+        "maxValue" : 100
+      }      
+    }
+  ]
+}
