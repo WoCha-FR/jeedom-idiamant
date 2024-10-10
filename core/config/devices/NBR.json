@@ -16,6 +16,18 @@
         "minValue" : 0,
         "maxValue" : 100
       }      
+    },
+    {
+      "name":"Statut RF",
+      "logicalId" : "rfstatus",
+      "type":"info",
+      "subType":"numeric",
+      "isHistorized" : 0,
+      "generic_type": "GENERIC_INFO",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      }
     }
   ]
 }

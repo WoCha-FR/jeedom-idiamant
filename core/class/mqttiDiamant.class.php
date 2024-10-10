@@ -49,6 +49,13 @@ class mqttiDiamant extends eqLogic {
       $eqLogic->setLogicalId($_key);
       $eqLogic->setConfiguration('device', $_values['type']);
       $eqLogic->setStatus('warning', !$_values['reachable']);
+      // Uniquement Volet
+      if (isset($_values['gateway'])) {
+        $eqLogic->setConfiguration('gateway', $_values['gateway']);
+        unset($_values['gateway']);
+      }
+      // Nettoyage des valeurs plus utiles
+      unset($_values['name'], $_values['type'], $_values['reachable']);
       // Sauvegarde
       $eqLogic->save();
       // Traitement des données
@@ -60,7 +67,7 @@ class mqttiDiamant extends eqLogic {
     $eqLogicId = $values['id'];
     $eqLogic = self::byLogicalId($eqLogicId, __CLASS__);
     // Nettoyage des valeurs inutiles
-    unset($values['id'], $values['name'], $values['type']);
+    unset($values['id']);
     // Parcours des valeurs
     foreach ($values as $key => $value) {
       log::add(__CLASS__, 'debug', '[' . __FUNCTION__ . '] ' . __('Mise à jour de ', __FILE__) . $key . __(' dans le module ', __FILE__) . $eqLogicId);

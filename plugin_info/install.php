@@ -18,6 +18,24 @@ require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
 function mqttiDiamant_install() {}
 
-function mqttiDiamant_update() {}
+function mqttiDiamant_update() {
+  $pluginId = 'mqttiDiamant';
+  // Demon - Librairie
+  $dependencyInfo = mqttiDiamant::dependancy_info();
+  if (!isset($dependencyInfo['state'])) {
+    message::add($pluginId, __('Veuilez vérifier les dépendances', __FILE__));
+  } elseif ($dependencyInfo['state'] == 'nok') {
+    try {
+      $plugin = plugin::byId($pluginId);
+      $plugin->dependancy_install();
+    } catch (\Throwable $th) {
+      message::add($pluginId, __('Cette mise à jour nécessite de réinstaller les dépendances même si elles sont marquées comme OK', __FILE__));
+    }
+  }
+  // Configuration des modules
+  foreach (eqLogic::byType($pluginId) as $eqLogic) {
+    $eqLogic->save();
+  }
+}
 
 function mqttNetatmo_remove() {}
