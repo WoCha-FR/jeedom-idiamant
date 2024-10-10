@@ -8,10 +8,6 @@ echo 5 > ${PROGRESS_FILE}
 
 BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-if [ -d "${BASEDIR}/node_modules" ]; then
-  rm -R ${BASEDIR}/node_modules
-fi
-
 if [ -d "${BASEDIR}/mqtt4idiamant" ]; then
   if [ -f "${BASEDIR}/mqtt4idiamant/state.json" ]; then
     echo "Backup token"

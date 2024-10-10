@@ -56,13 +56,13 @@ if (!isConnect()) {
     <div class="form-group">
       <label class="col-md-4 control-label">{{Client ID}}</label>
       <div class="col-md-3">
-        <input type="text" class="configKey form-control" data-l1key="netatmo::cid" placeholder="{{Client ID}}"/>
+        <input type="text" class="configKey form-control" data-l1key="idiamant::cid" placeholder="{{Client ID}}"/>
       </div>
     </div>
     <div class="form-group">
       <label class="col-md-4 control-label">{{Client Secret}}</label>
       <div class="col-md-3">
-        <input type="text" class="configKey form-control" data-l1key="netatmo::csecret" placeholder="{{Client Secret}}"/>
+        <input type="text" class="configKey form-control" data-l1key="idiamant::csecret" placeholder="{{Client Secret}}"/>
       </div>
     </div>
     <div class="form-group">

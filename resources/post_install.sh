@@ -9,7 +9,7 @@ echo 50 > ${PROGRESS_FILE}
 BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 cd ${BASEDIR}
 source ../core/config/mqttiDiamant.config.ini &> /dev/null
-echo "Version requise : ${mqttNetatmoRequire}"
+echo "Version requise : ${mqttiDiamantRequire}"
 
 curl -L -s https://github.com/WoCha-FR/mqtt4idiamant/archive/refs/tags/${mqttiDiamantRequire}.tar.gz | tar zxf -
 mv mqtt4idiamant-${mqttiDiamantRequire} mqtt4idiamant
