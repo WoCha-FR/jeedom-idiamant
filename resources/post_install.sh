@@ -19,4 +19,8 @@ cd $BASEDIR/mqtt4idiamant
 npm ci
 
 echo 90 > ${PROGRESS_FILE}
+if [ -f "${BASEDIR}/state.json" ]; then
+  echo "Restore configuration"
+  mv ${BASEDIR}/state.json ${BASEDIR}/mqtt4idiamant/state.json
+fi
 chown www-data:www-data -R ${BASEDIR}/mqtt4idiamant

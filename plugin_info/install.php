@@ -34,6 +34,7 @@ function mqttiDiamant_update() {
   }
   // Configuration des modules
   foreach (eqLogic::byType($pluginId) as $eqLogic) {
+    $eqLogic->setConfiguration('applyDevice', '');
     $eqLogic->save();
   }
 }

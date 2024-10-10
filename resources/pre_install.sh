@@ -10,6 +10,7 @@ BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 if [ -d "${BASEDIR}/mqtt4idiamant" ]; then
   if [ -f "${BASEDIR}/mqtt4idiamant/state.json" ]; then
+    cp ${BASEDIR}/mqtt4idiamant/state.json ${BASEDIR}/state.json
     echo "Backup token"
   fi
   rm -R ${BASEDIR}/mqtt4idiamant
