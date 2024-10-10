@@ -16,6 +16,35 @@
  */
 
 class mqttiDiamant extends eqLogic {
+  /* Handle MQTT */
+  public static function handleMqttMessage($_message) {
+    /* Message pour nous ? */
+    if (isset($_message[config::byKey('mqtt::topic', __CLASS__, 'idiamant')])) {
+      $message = $_message[config::byKey('mqtt::topic', __CLASS__, 'idiamant')];
+    } else {
+      log::add(__CLASS__, 'debug', '[' . __FUNCTION__ . '] ' . __('Le message reçu n\'est pas un message mqttiDiamant', __FILE__));
+      return;
+    }
+    // Parcours des messages
+    foreach( $message as $_key => &$_values) {
+      // Key connected ignored
+      if ( $_key == 'connected' ) {
+        continue;
+      }
+      if (!isset($_values['name']) || $_values['name'] == ''){
+        $_values['name'] = $_values[$_key];
+      }
+      log::add(__CLASS__, 'debug', json_encode($_values));
+    }
+  }
+
+  /* Images */
+  public function getImage() {
+    if (file_exists(__DIR__.'/../config/devices/'.  $this->getConfiguration('device').'.png')){
+      return 'plugins/mqttiDiamant/core/config/devices/'.  $this->getConfiguration('device').'.png';
+    }
+    return false;
+  }
 
   /* Dependencies */
   public static function dependancy_info() {
@@ -83,20 +112,21 @@ class mqttiDiamant extends eqLogic {
     $mqttInfos = mqtt2::getFormatedInfos();
     log::add(__CLASS__, 'debug', '[' . __FUNCTION__ . '] ' . __('Informations reçues de MQTT Manager', __FILE__) . ' : ' . json_encode($mqttInfos));
     $mqtt_url = ($mqttInfos['port'] === 1883) ? 'mqtts://' : 'mqtt://';
-    $mqtt_url .= ($mqttInfos['password'] === null) ? '' : $mqttInfos['user'].':'.$mqttInfos['password'].'@';
+    $mqtt_url .= (empty($mqttInfos['password'])) ? '' : $mqttInfos['user'].':'.$mqttInfos['password'].'@';
     $mqtt_url .= $mqttInfos['ip'].':'.$mqttInfos['port'];
 
     $appjs_debug = 'DEBUG_LEVEL=' . log::convertLogLevel(log::getLogLevel(__CLASS__));
-    $appjs_path = realpath(dirname(__FILE__) . '/../../resources/mqtt4iDiamant');
+    $appjs_path = realpath(dirname(__FILE__) . '/../../resources/mqtt4idiamant');
     chdir($appjs_path);
 
     $config = [
       'mqtt_url' => $mqtt_url,
       'mqtt_topic' => config::byKey('mqtt::topic', __CLASS__, 'idiamant'),
       'mqtt_verifcert'=> false,
-      'clientId' => config::byKey('idiamant::cid', __CLASS__),
-      'clientSecret' => config::byKey('idiamant::csecret', __CLASS__)
+      'clientId' => config::byKey('idiamant::cid', __CLASS__, 'vide'),
+      'clientSecret' => config::byKey('idiamant::csecret', __CLASS__, 'vide')
     ];
+    log::add(__CLASS__, 'debug', '[' . __FUNCTION__ . '] ' . __('Ecriture fichier de configuration', __FILE__) . ' : ' . json_encode($config));
     file_put_contents('config.json', json_encode($config));
 
     // Lancement

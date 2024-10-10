@@ -18,7 +18,7 @@
 if (!isConnect('admin')) {
   throw new Exception('{{401 - Accès non autorisé}}');
 }
-$plugin = plugin::byId('mqttiDidmant');
+$plugin = plugin::byId('mqttiDiamant');
 sendVarToJS('eqType', $plugin->getId());
 $eqLogics = eqLogic::byType($plugin->getId());
 ?>
