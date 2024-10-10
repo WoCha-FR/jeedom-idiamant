@@ -269,17 +269,29 @@ class mqttiDiamantCmd extends cmd {
     if ($this->getType() != 'action') {
       return;
     }
+    $message = array();
+    // ID Module
     $eqLogic = $this->getEqLogic();
-    $subTopic = $this->getLogicalId();
-    $rootTopic = config::byKey('mqtt::topic', 'mqttiDiamant', 'idiamant') . '/' . $subTopic;
+    $subTopic = $eqLogic->getLogicalId();
+    $rootTopic = config::byKey('mqtt::topic', 'mqttiDiamant', 'idiamant') . '/' . $subTopic . '/set';
     // Valeur
     switch ($this->getSubType()) {
       case 'slider':
         $value = strval(floor($_options['slider']));
         break;
+      case 'other':
+        $value = $this->getConfiguration('message');
+        break;
+      default:
+        $value = $this->getConfiguration('message');
+        break;
     }
+    // Formatage
+    $message["target_position"] = $value;
     // LOG
     log::add('mqttiDiamant', 'debug', 'ACTION: ' . json_encode($_options));
-    log::add('mqttiDiamant', 'info', 'ACTION: ' . $rootTopic . '/' . $subTopic . ' => ' . $value);
+    log::add('mqttiDiamant', 'info', 'ACTION: ' . $rootTopic . ' => ' . json_encode($message, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    // PUBLISH
+    mqtt2::publish($rootTopic, $message);
   }
 }

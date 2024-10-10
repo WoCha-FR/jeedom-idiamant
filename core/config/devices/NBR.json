@@ -40,6 +40,36 @@
       }
     },
     {
+      "name": "Ouvrir",
+      "logicalId": "position100",
+      "type": "action",
+      "subType": "other",
+      "value": "position",
+      "generic_type": "FLAP_UP",
+      "configuration": {
+        "message": "100"
+      },
+      "template": {
+        "dashboard": "core::default",
+        "mobile": "core::default"
+      }
+    },
+    {
+      "name": "Fermer",
+      "logicalId": "position0",
+      "type": "action",
+      "subType": "other",
+      "value": "position",
+      "generic_type": "FLAP_DOWN",
+      "configuration": {
+        "message": "0"
+      },
+      "template": {
+        "dashboard": "core::default",
+        "mobile": "core::default"
+      }
+    },
+    {
       "name":"Statut RF",
       "logicalId" : "rfstatus",
       "type":"info",
