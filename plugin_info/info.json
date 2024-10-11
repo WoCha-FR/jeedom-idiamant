@@ -18,5 +18,5 @@
   "documentation_beta": "https://wocha-fr.github.io/jeedom-idiamant/#language#/index_beta",
   "issue": "https://github.com/WoCha-FR/jeedom-idiamant/issues",
   "language": ["fr_FR","en_US"],
-  "compatibility": ["rpi","docker","diy","mobile","v4","atlas","smart"]
+  "compatibility": ["rpi","docker","diy","mobile","v4","atlas","smart","luna"]
 }
