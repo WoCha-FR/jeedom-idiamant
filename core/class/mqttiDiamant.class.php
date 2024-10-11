@@ -289,7 +289,6 @@ class mqttiDiamantCmd extends cmd {
     // Formatage
     $message["target_position"] = $value;
     // LOG
-    log::add('mqttiDiamant', 'debug', 'ACTION: ' . json_encode($_options));
     log::add('mqttiDiamant', 'info', 'ACTION: ' . $rootTopic . ' => ' . json_encode($message, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
     // PUBLISH
     mqtt2::publish($rootTopic, $message);
