@@ -2,10 +2,8 @@
   "id": "mqttiDiamant",
   "name": "MQTT iDiamant",
   "description": {
-    "fr_FR" : "",
-    "en_US" : "",
-    "es_ES" : "",
-    "de_DE" : ""
+    "fr_FR" : "Ce plugin permet de récuperer les données des produits Bubendorff avec la passerelle iDiamant Netatmo via MQTT.",
+    "en_US" : "This plugin enables you to retrieve data from Bubendorff products using the Netatmo iDiamant gateway via MQTT."
   },
   "licence": "AGPL",
   "author": "Wocha",

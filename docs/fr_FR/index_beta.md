@@ -57,6 +57,8 @@ Les équipements sont accessibles à partir du menu Plugins → Objets connecté
 
 Les équipements sont crées lors de leur découverte par MQTT Manager.
 
+![Equipements](../images/mesequipements.png)
+
 ## Configuration des équipements
 
 En cliquant sur un équipement, vous retrouverez ses informations :
@@ -69,9 +71,13 @@ En cliquant sur un équipement, vous retrouverez ses informations :
 - **Type** : le type de module (en lecture seule).
 - **Identifiant** : l'identifiant unique du module.
 
+![InfoEquipement](../images/infoequipement.png)
+
 ## Les commandes
 
 Pour chaque équipements, vous pouvez voir les commandes créér par l'auto-découverte.
+
+![CommandesEquipment](../images/commandesequipement.png)
 
 # Page santé
 
