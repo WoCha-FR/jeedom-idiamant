@@ -1,0 +1,87 @@
+{
+  "name" : "Volet",
+  "commands" : [
+    {
+      "name":"position",
+      "logicalId" : "position",
+      "type":"info",
+      "subType":"numeric",
+      "generic_type": "FLAP_STATE",
+      "unite" : "%",
+      "isVisible": 0,
+      "template" : {
+        "dashboard" : "core::shutter",
+        "mobile" : "core::shutter"
+      },
+      "configuration":{
+        "minValue" : 0,
+        "maxValue" : 100
+      }      
+    },
+    {
+      "name": "setPosition",
+      "logicalId" : "setposition",
+      "type": "action",
+      "subType": "slider",
+      "value": "position",
+      "generic_type": "FLAP_SLIDER",
+      "unite" : "%",
+      "configuration": {
+        "minValue": "0",
+        "maxValue": "100"
+      },
+      "template": {
+        "dashboard": "core::shutter",
+        "mobile": "core::shutter"
+      },
+      "display": {
+        "parameters": {
+          "step": "1"
+        }
+      }
+    },
+    {
+      "name": "Ouvrir",
+      "logicalId": "position100",
+      "type": "action",
+      "subType": "other",
+      "value": "position",
+      "generic_type": "FLAP_UP",
+      "configuration": {
+        "message": "100"
+      },
+      "template": {
+        "dashboard": "core::default",
+        "mobile": "core::default"
+      }
+    },
+    {
+      "name": "Fermer",
+      "logicalId": "position0",
+      "type": "action",
+      "subType": "other",
+      "value": "position",
+      "generic_type": "FLAP_DOWN",
+      "configuration": {
+        "message": "0"
+      },
+      "template": {
+        "dashboard": "core::default",
+        "mobile": "core::default"
+      }
+    },
+    {
+      "name":"Statut RF",
+      "logicalId" : "rfstatus",
+      "type":"info",
+      "subType":"numeric",
+      "isVisible": 0,
+      "isHistorized" : 0,
+      "generic_type": "GENERIC_INFO",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      }
+    }
+  ]
+}

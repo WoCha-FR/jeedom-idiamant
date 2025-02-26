@@ -1,0 +1,14 @@
+{
+  "pre-install" : {
+    "script" : "plugins/mqttiDiamant/resources/pre_install.sh"
+  },
+  "plugin" : {
+    "mqtt2" : {}
+  },
+  "apt":{
+    "nodejs" : {}
+  },
+  "post-install" : {
+    "script" : "plugins/mqttiDiamant/resources/post_install.sh"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name" : "Passerelle",
+  "commands" : [
+    {
+      "name":"Statut Wifi",
+      "logicalId" : "wifistatus",
+      "type":"info",
+      "subType":"numeric",
+      "isHistorized" : 0,
+      "generic_type": "GENERIC_INFO",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      }
+    }
+  ]
+}

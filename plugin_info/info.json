@@ -1,0 +1,22 @@
+{
+  "id": "mqttiDiamant",
+  "name": "MQTT iDiamant",
+  "description": {
+    "fr_FR" : "Ce plugin permet de récuperer les données des produits Bubendorff avec la passerelle iDiamant Netatmo via MQTT.",
+    "en_US" : "This plugin enables you to retrieve data from Bubendorff products using the Netatmo iDiamant gateway via MQTT."
+  },
+  "licence": "AGPL",
+  "author": "Wocha",
+  "require": "4.4",
+  "category": "devicecommunication",
+  "hasDependency": true,
+  "hasOwnDeamon": true,
+  "maxDependancyInstallTime": 90,
+  "changelog": "https://wocha-fr.github.io/jeedom-idiamant/#language#/changelog",
+  "documentation": "https://wocha-fr.github.io/jeedom-idiamant/#language#/",
+  "changelog_beta": "https://wocha-fr.github.io/jeedom-idiamant/#language#/changelog_beta",
+  "documentation_beta": "https://wocha-fr.github.io/jeedom-idiamant/#language#/index_beta",
+  "issue": "https://github.com/WoCha-FR/jeedom-idiamant/issues",
+  "language": ["fr_FR","en_US"],
+  "compatibility": ["rpi","docker","diy","mobile","v4","atlas","smart","luna"]
+}
