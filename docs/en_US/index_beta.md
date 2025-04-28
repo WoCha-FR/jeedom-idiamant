@@ -39,9 +39,9 @@ This plugin enables you to retrieve data from Bubendorff products using the Neta
 ![Configuration](../images/configuration.png)
 
 - **Root Topic**: Root topic that Jeedom should listen to.
-- **Mode**: Remote or Local. See below.
 - **Client ID**: Information obtained from the Netatmo website in the previous step.
 - **Client Secret**: Information obtained during the previous step on the Netatmo site.
+- **Polling interval**: API polling interval in seconds
 - **Netatmo identification** : Link to Netatmo authentication.
 
 ## Configuring your NETATMO account

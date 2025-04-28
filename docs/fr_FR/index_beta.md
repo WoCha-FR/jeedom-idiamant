@@ -9,7 +9,7 @@ Ce plugin permet de récuperer les données des produits Bubendorff avec la pass
 - Vous devez disposer d'un compte développeur Netatmo (gratuit).
 - Ce plugin requiert [MQTT Manager](https://market.jeedom.com/index.php?v=d&p=market_display&id=4213), plugin officiel et gratuit.
 
-## Installation 
+## Installation
 
 - Télécharger le plugin depuis le market
 - Activer le plugin
@@ -41,6 +41,7 @@ Ce plugin permet de récuperer les données des produits Bubendorff avec la pass
 - **Topic racine** : Sujet racine que Jeedom doit écouter.
 - **Client ID** : Information obtenue lors de l'étape précédente sur le site de Netatmo.
 - **Client Secret** : Information obtenue lors de l'étape précédente sur le site de Netatmo.
+- **Fréquence d'interrogation**: Fréquence d'interrogation de l'API Netatmo.
 - **Identification Netatmo** : Lien vers l'authentification Netatmo.
 
 ## Configuration du compte NETATMO

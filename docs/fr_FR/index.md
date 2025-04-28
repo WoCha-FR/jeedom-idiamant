@@ -41,6 +41,7 @@ Ce plugin permet de récuperer les données des produits Bubendorff avec la pass
 - **Topic racine** : Sujet racine que Jeedom doit écouter.
 - **Client ID** : Information obtenue lors de l'étape précédente sur le site de Netatmo.
 - **Client Secret** : Information obtenue lors de l'étape précédente sur le site de Netatmo.
+- **Fréquence d'interrogation**: Fréquence d'interrogation de l'API Netatmo.
 - **Identification Netatmo** : Lien vers l'authentification Netatmo.
 
 ## Configuration du compte NETATMO

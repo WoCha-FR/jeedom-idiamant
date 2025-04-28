@@ -75,6 +75,8 @@
       "Authentification Netatmo": "Netatmo authentication",
       "Client ID": "Client ID",
       "Client Secret": "Client Secret",
+      "Fréquence d'interrogation": "Polling interval",
+      "en secondes": "in seconds",
       "Ouvrir": "Open",
       "Topic racine": "Root Topic",
       "Version Librairie iDiamant": "iDiamant library version",
