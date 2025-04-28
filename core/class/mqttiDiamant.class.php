@@ -99,7 +99,7 @@ class mqttiDiamant extends eqLogic {
       try {
         $return[str_replace('.json','',$file)] = is_json(file_get_contents(__DIR__.'/../config/devices/'. $file),false);
       } catch (Exception $e) {
-        
+
       }
     }
     if (isset($_device) && $_device != '') {
@@ -197,7 +197,8 @@ class mqttiDiamant extends eqLogic {
       'mqtt_topic' => config::byKey('mqtt::topic', __CLASS__, 'idiamant'),
       'mqtt_verifcert'=> false,
       'clientId' => config::byKey('idiamant::cid', __CLASS__, 'vide'),
-      'clientSecret' => config::byKey('idiamant::csecret', __CLASS__, 'vide')
+      'clientSecret' => config::byKey('idiamant::csecret', __CLASS__, 'vide'),
+      'polling' => config::byKey('idiamant::polling', __CLASS__, 15)
     ];
     log::add(__CLASS__, 'debug', '[' . __FUNCTION__ . '] ' . __('Ecriture fichier de configuration', __FILE__) . ' : ' . json_encode($config));
     file_put_contents('config.json', json_encode($config));

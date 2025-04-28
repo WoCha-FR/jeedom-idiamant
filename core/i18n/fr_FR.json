@@ -75,6 +75,8 @@
       "Authentification Netatmo": "Authentification Netatmo",
       "Client ID": "Client ID",
       "Client Secret": "Client Secret",
+      "Fréquence d'interrogation": "Fréquence d'interrogation",
+      "en secondes": "en secondes",
       "Ouvrir": "Ouvrir",
       "Topic racine": "Topic racine",
       "Version Librairie iDiamant": "Version Librairie iDiamant",

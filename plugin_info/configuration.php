@@ -27,13 +27,13 @@ if (!isConnect()) {
     <div class="form-group demon_mode local">
       <label class="col-md-4 control-label">{{Version Librairie iDiamant}}</label>
       <div class="col-md-3">
-      <?php
+        <?php
         $file = dirname(__FILE__) . '/../resources/mqtt4idiamant/package.json';
         $package = array();
         if (file_exists($file)) {
           $package = json_decode(file_get_contents($file), true);
         }
-        if (isset($package['version'])){
+        if (isset($package['version'])) {
           config::save('mqttiDiamantVersion', $package['version'], 'mqttiDiamantRequire');
         }
         $localVersion = config::byKey('mqttiDiamantVersion', 'mqttiDiamant', 'N/A');
@@ -44,7 +44,7 @@ if (!isConnect()) {
         } else {
           echo '<span class="label label-success">' . $localVersion . '</span><br>';
         }
-      ?>
+        ?>
       </div>
     </div>
     <div class="form-group">
@@ -56,13 +56,21 @@ if (!isConnect()) {
     <div class="form-group">
       <label class="col-md-4 control-label">{{Client ID}}</label>
       <div class="col-md-3">
-        <input type="text" class="configKey form-control" data-l1key="idiamant::cid" placeholder="{{Client ID}}"/>
+        <input type="text" class="configKey form-control" data-l1key="idiamant::cid" placeholder="{{Client ID}}" />
       </div>
     </div>
     <div class="form-group">
       <label class="col-md-4 control-label">{{Client Secret}}</label>
       <div class="col-md-3">
-        <input type="text" class="configKey form-control" data-l1key="idiamant::csecret" placeholder="{{Client Secret}}"/>
+        <input type="text" class="configKey form-control" data-l1key="idiamant::csecret" placeholder="{{Client Secret}}" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label">{{Fréquence d'interrogation}}
+        <sup><i class="fas fa-question-circle tooltips" title="{{en secondes}}"></i></sup>
+      </label>
+      <div class="col-md-3">
+        <input type="text" class="configKey form-control" data-l1key="idiamant::polling" />
       </div>
     </div>
     <div class="form-group">
@@ -92,7 +100,7 @@ if (!isConnect()) {
       topPosition + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no");
 
     if (nouvellefenetre) { //securité pour fermer la fenetre si le focus est perdu
-      window.onfocus = function () {
+      window.onfocus = function() {
         nouvellefenetre.window.close();
       }
     }
