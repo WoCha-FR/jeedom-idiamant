@@ -14,6 +14,30 @@
 * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
 */
 
+$('#bt_syncVolets').off('click').on('click',function() {
+  $('#div_alert').showAlert({message: '{{Synchronisation en cours}}', level: 'warning'});
+  $.ajax({
+    type: "POST",
+    url: "plugins/mqttiDiamant/core/ajax/mqttiDiamant.ajax.php",
+    data: {
+      action: "refresh",
+    },
+    dataType: 'json',
+    global: false,
+    error: function (request, status, error) {
+      handleAjaxError(request, status, error);
+    },
+    success: function (data) {
+      if (data.state != 'ok') {
+        $('#div_alert').showAlert({message: data.result, level: 'danger'});
+        return;
+      }
+      $('#div_alert').showAlert({message: '{{Operation realisée avec succès}}', level: 'success'});
+      window.location.reload();
+    }
+  })
+})
+
 $('#bt_healthiDiamant').off('click').on('click', function () {
   $('#md_modal').dialog({title: "{{Santé iDiamant}}"}).load('index.php?v=d&plugin=mqttiDiamant&modal=health').dialog('open');
 })

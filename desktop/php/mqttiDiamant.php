@@ -26,7 +26,13 @@ $eqLogics = eqLogic::byType($plugin->getId());
 <div class="row row-overflow">
   <div class="col-xs-12 eqLogicThumbnailDisplay">
     <legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
+    <!-- Boutons de gestion du plugin -->
     <div class="eqLogicThumbnailContainer">
+      <div class="cursor logoSecondary" id="bt_syncVolets">
+        <i class="fas fa-sync-alt"></i>
+        <br>
+        <span>{{Synchronisation}}</span>
+      </div>
       <div class="cursor eqLogicAction logoSecondary" data-action="gotoPluginConf">
         <i class="fas fa-wrench"></i>
         <br>
