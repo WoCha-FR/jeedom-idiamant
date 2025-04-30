@@ -4,6 +4,12 @@
 >
 >If there is no information about the update, this means that it only concerns the updating of documentation, translation or text.
 
+# 2025-05-01
+- Library update
+
+# 2025-04-30
+- Add button for forced synchronisation of equipment
+
 # 2025-04-29
 - Library update
 
