@@ -6,6 +6,11 @@
 
 # 2025-05-01
 - Library update
+- Various optimisations
+- Addition of a STOP command
+
+# 2025-05-01
+- Library update
 
 # 2025-04-30
 - Add button for forced synchronisation of equipment

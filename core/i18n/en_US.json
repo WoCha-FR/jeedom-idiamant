@@ -76,7 +76,9 @@
       "Supprimer": "Delete",
       "Type": "Type",
       "Visible": "Visible",
-      "Volet": "Shutter"
+      "Volet": "Shutter",
+      "Volet Orientable": "Adjustable shutter",
+      "Volet Oscillant": "Oscillating shutter"
   },
   "plugins\/mqttiDiamant\/plugin_info\/configuration.php": {
       "Authentification Netatmo": "Netatmo authentication",

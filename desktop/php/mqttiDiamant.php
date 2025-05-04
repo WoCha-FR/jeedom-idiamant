@@ -149,8 +149,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
                   <select disabled class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="device" disabled>
                     <option value="NBG" data-img="NBG.png">{{Passerelle}}</option>
                     <option value="NBR" data-img="NBR.png">{{Volet}}</option>
-                    <option value="NBO" data-img="NBO.png">{{Volet}}</option>
-                    <option value="NBS" data-img="NBS.png">{{Volet}}</option>
+                    <option value="NBO" data-img="NBO.png">{{Volet Orientable}}</option>
+                    <option value="NBS" data-img="NBS.png">{{Volet Oscillant}}</option>
                   </select>
                 </div>
               </div>

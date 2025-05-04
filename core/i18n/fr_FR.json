@@ -76,7 +76,9 @@
       "Supprimer": "Supprimer",
       "Type": "Type",
       "Visible": "Visible",
-      "Volet": "Volet"
+      "Volet": "Volet",
+      "Volet Orientable": "Volet Orientable",
+      "Volet Oscillant": "Volet Oscillant"
   },
   "plugins\/mqttiDiamant\/plugin_info\/configuration.php": {
       "Authentification Netatmo": "Authentification Netatmo",

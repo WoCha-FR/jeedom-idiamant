@@ -39,4 +39,4 @@ function mqttiDiamant_update() {
   }
 }
 
-function mqttNetatmo_remove() {}
+function mqttiDiamant_remove() {}

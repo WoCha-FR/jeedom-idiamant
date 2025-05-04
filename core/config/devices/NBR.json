@@ -16,7 +16,7 @@
       "configuration":{
         "minValue" : 0,
         "maxValue" : 100
-      }      
+      }
     },
     {
       "name": "setPosition",
@@ -64,6 +64,21 @@
       "generic_type": "FLAP_DOWN",
       "configuration": {
         "message": "0"
+      },
+      "template": {
+        "dashboard": "core::default",
+        "mobile": "core::default"
+      }
+    },
+    {
+      "name": "Stop",
+      "logicalId": "positionStop",
+      "type": "action",
+      "subType": "other",
+      "value": "position",
+      "generic_type": "FLAP_STOP",
+      "configuration": {
+        "message": "-1"
       },
       "template": {
         "dashboard": "core::default",
