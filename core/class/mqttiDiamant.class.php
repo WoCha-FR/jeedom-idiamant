@@ -72,18 +72,17 @@ class mqttiDiamant extends eqLogic {
       $eqLogic->setConfiguration('device', $params['type']);
       $eqLogic->setConfiguration('homename', $params['home']);
       // Uniquement Volet : Gateway
-      if (isset($_values['gateway'])) {
-        $eqLogic->setConfiguration('gateway', $_values['gateway']);
-        unset($_values['gateway']);
+      if (isset($params['gateway'])) {
+        $eqLogic->setConfiguration('gateway', $params['gateway']);
       }
       // Sauvegarde
       $eqLogic->save();
       // Update flap step
-      if ($_values['position_step']) {
+      if ($params['position_step']) {
         $cmd = self::getCmd('action', 'setposition');
         if (is_object($cmd)) {
           $arr = $cmd->getDisplay('parameters');
-          $arr['step'] = $_values['position_step'];
+          $arr['step'] = $params['position_step'];
           $cmd->setDisplay('parameters', $arr);
           $cmd->save();
         }
