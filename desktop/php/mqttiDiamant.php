@@ -142,11 +142,16 @@ $eqLogics = eqLogic::byType($plugin->getId());
 
             <div class="col-lg-6">
               <legend><i class="fas fa-info"></i> {{Informations}}</legend>
-
+              <div class="form-group">
+                <label class="col-sm-2 control-label">{{Maison}}</label>
+                <div class="col-sm-6">
+                  <span class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="homename"></span>
+                </div>
+              </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">{{Type}}</label>
                 <div class="col-sm-8">
-                  <select disabled class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="device" disabled>
+                  <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="device" disabled>
                     <option value="NBG" data-img="NBG.png">{{Passerelle}}</option>
                     <option value="NBR" data-img="NBR.png">{{Volet}}</option>
                     <option value="NBO" data-img="NBO.png">{{Volet Orientable}}</option>
@@ -154,7 +159,6 @@ $eqLogics = eqLogic::byType($plugin->getId());
                   </select>
                 </div>
               </div>
-
               <div class="form-group">
                 <label class="col-sm-2 control-label"></label>
                 <div class="col-sm-8">

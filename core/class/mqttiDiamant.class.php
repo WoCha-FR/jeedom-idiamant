@@ -78,8 +78,8 @@ class mqttiDiamant extends eqLogic {
       // Sauvegarde
       $eqLogic->save();
       // Update flap step
-      if ($params['position_step']) {
-        $cmd = self::getCmd('action', 'setposition');
+      if (isset($params['position_step'])) {
+        $cmd = $eqLogic->getCmd('action', 'setposition');
         if (is_object($cmd)) {
           $arr = $cmd->getDisplay('parameters');
           $arr['step'] = $params['position_step'];

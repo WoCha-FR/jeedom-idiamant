@@ -43,7 +43,8 @@
       "ID": "ID",
       "Image": "Picture",
       "Module": "Module",
-      "Passerelle": "Gateway"
+      "Passerelle": "Gateway",
+      "Maison": "Home"
   },
   "plugins\/mqttiDiamant\/desktop\/php\/mqttiDiamant.php": {
       "401 - Accès non autorisé": "401 - Unauthorized Access",
@@ -78,7 +79,8 @@
       "Visible": "Visible",
       "Volet": "Shutter",
       "Volet Orientable": "Adjustable shutter",
-      "Volet Oscillant": "Oscillating shutter"
+      "Volet Oscillant": "Oscillating shutter",
+      "Maison": "Home"
   },
   "plugins\/mqttiDiamant\/plugin_info\/configuration.php": {
       "Authentification Netatmo": "Netatmo authentication",

@@ -8,6 +8,7 @@
 - Mise a jour librairie
 - Optimisations diverses
 - Ajout d'une commande STOP
+- Page santé avec champs triables
 
 # 01/05/2025
 - Mise a jour librairie

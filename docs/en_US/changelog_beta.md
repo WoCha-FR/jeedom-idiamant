@@ -8,6 +8,7 @@
 - Library update
 - Various optimisations
 - Addition of a STOP command
+- Sortable health page
 
 # 2025-05-01
 - Library update
