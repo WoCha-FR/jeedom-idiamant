@@ -27,47 +27,76 @@ class mqttiDiamant extends eqLogic {
     }
     // Parcours des messages
     foreach( $message as $_key => &$_values) {
-      // Key connected ignored
-      if ( $_key == 'connected' ) {
+      // Error Message
+      if ($_key == 'error') {
+        log::add('mqttiDiamant', 'error', json_encode($_values));
         continue;
       }
-      if (!isset($_values['name']) || $_values['name'] == ''){
-        $_values['name'] = $_values[$_key];
+      // Info Message
+      if ($_key == 'info') {
+        log::add('mqttiDiamant', 'info', json_encode($_values));
+        continue;
       }
-      log::add(__CLASS__, 'debug', json_encode($_values));
-      // Nouvel appareil ?
-      $eqLogic = self::byLogicalId($_key, __CLASS__);
+      // Key connected ignored
+      if ($_key == 'connected') {
+        continue;
+      }
+      // Configuration d'un Equipement
+      if ($_key == 'config') {
+        self::handleConfig($_values);
+        continue;
+      }
+      // Traitement des données
+      self::handleValues($_values);
+    }
+  }
+
+  private static function handleConfig($_values) {
+    log::add(__CLASS__, 'debug', __('Configuration: ', __FILE__) . json_encode($_values));
+    foreach ($_values as $uniqID => $params) {
+      if (!isset($params['name']) || $params['name'] == '') {
+        $params['name'] = $uniqID;
+      }
+      // Recherche appareil ?
+      $eqLogic = self::byLogicalId($uniqID, __CLASS__);
       // Création si besoin
       if (!is_object($eqLogic)) {
         $eqLogic = new mqttiDiamant();
         $eqLogic->setIsVisible(1);
         $eqLogic->setIsEnable(1);
-        $eqLogic->setName($_values['name']);
+        $eqLogic->setName($params['name']);
+        $eqLogic->setEqType_name(__CLASS__);
+        $eqLogic->setLogicalId($uniqID);
       }
       // Paramétrages
-      $eqLogic->setEqType_name(__CLASS__);
-      $eqLogic->setLogicalId($_key);
-      $eqLogic->setConfiguration('device', $_values['type']);
-      $eqLogic->setStatus('warning', !$_values['reachable']);
-      // Uniquement Volet
-      if (isset($_values['gateway'])) {
-        $eqLogic->setConfiguration('gateway', $_values['gateway']);
-        unset($_values['gateway']);
+      $eqLogic->setConfiguration('device', $params['type']);
+      $eqLogic->setConfiguration('homename', $params['home']);
+      // Uniquement Volet : Gateway
+      if (isset($params['gateway'])) {
+        $eqLogic->setConfiguration('gateway', $params['gateway']);
       }
-      // Nettoyage des valeurs plus utiles
-      unset($_values['name'], $_values['type'], $_values['reachable']);
       // Sauvegarde
       $eqLogic->save();
-      // Traitement des données
-      self::handleValues($_values);
+      // Update flap step
+      if (isset($params['position_step'])) {
+        $cmd = $eqLogic->getCmd('action', 'setposition');
+        if (is_object($cmd)) {
+          $arr = $cmd->getDisplay('parameters');
+          $arr['step'] = $params['position_step'];
+          $cmd->setDisplay('parameters', $arr);
+          $cmd->save();
+        }
+      }
     }
   }
 
   private static function handleValues($values) {
     $eqLogicId = $values['id'];
     $eqLogic = self::byLogicalId($eqLogicId, __CLASS__);
+    // Update reachable warning
+    $eqLogic->setStatus('warning', !$values['reachable']);
     // Nettoyage des valeurs inutiles
-    unset($values['id']);
+    unset($values['id'], $values['reachable']);
     // Parcours des valeurs
     foreach ($values as $key => $value) {
       log::add(__CLASS__, 'debug', '[' . __FUNCTION__ . '] ' . __('Mise à jour de ', __FILE__) . $key . __(' dans le module ', __FILE__) . $eqLogicId);
@@ -75,7 +104,7 @@ class mqttiDiamant extends eqLogic {
     }
   }
 
-  /* Configuration Equipement depuis config file*/
+  /* Configuration Equipement depuis config file */
   public function postSave() {
     if ($this->getConfiguration('applyDevice') != $this->getConfiguration('device')) {
       $this->setConfiguration('applyDevice', $this->getConfiguration('device'));
@@ -87,7 +116,7 @@ class mqttiDiamant extends eqLogic {
       if (!is_array($device)) {
         return true;
       }
-      $this->import($device,true);
+      $this->import($device, true);
       log::add(__CLASS__, 'info', '[' . __FUNCTION__ . '] ' . __('Création des commandes pour un module de type ', __FILE__) . $this->getConfiguration('device'));
     }
   }

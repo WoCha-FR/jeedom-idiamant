@@ -1,4 +1,8 @@
 {
+  "plugins\/mqttiDiamant\/core\/ajax\/mqttiDiamant.ajax.php": {
+    "401 - Accès non Autorisé": "401 - Unauthorized Access",
+    "Aucune méthode correspondante à": "No method corresponding to"
+  },
   "plugins\/mqttiDiamant\/core\/class\/mqttiDiamant.class.php": {
       " dans le module ": " in the module ",
       "Arrêt du démon mqttiDiamant": "Stopping the mqttiDiamant daemon",
@@ -29,7 +33,9 @@
       "Santé iDiamant": "iDiamant Health",
       "Tester": "Test",
       "Topic": "Topic",
-      "Unité": "Unit"
+      "Unité": "Unit",
+      "Synchronisation en cours": "Synchronisation in progress",
+      "Operation realisée avec succès": "Operation successfully completed"
   },
   "plugins\/mqttiDiamant\/desktop\/modal\/health.php": {
       "Date création": "Creation date",
@@ -37,13 +43,15 @@
       "ID": "ID",
       "Image": "Picture",
       "Module": "Module",
-      "Passerelle": "Gateway"
+      "Passerelle": "Gateway",
+      "Maison": "Home"
   },
   "plugins\/mqttiDiamant\/desktop\/php\/mqttiDiamant.php": {
       "401 - Accès non autorisé": "401 - Unauthorized Access",
       "Actions": "Actions",
       "Activer": "Enable",
       "Aucun": "None",
+      "Synchronisation": "Synchronisation",
       "Aucun équipement MQTT trouvé, cliquez sur \"Ajouter\" pour commencer": "No MQTT equipment found, click on \"Add\" to start",
       "Catégorie": "Category",
       "Commandes": "Commands",
@@ -69,7 +77,10 @@
       "Supprimer": "Delete",
       "Type": "Type",
       "Visible": "Visible",
-      "Volet": "Shutter"
+      "Volet": "Shutter",
+      "Volet Orientable": "Adjustable shutter",
+      "Volet Oscillant": "Oscillating shutter",
+      "Maison": "Home"
   },
   "plugins\/mqttiDiamant\/plugin_info\/configuration.php": {
       "Authentification Netatmo": "Netatmo authentication",

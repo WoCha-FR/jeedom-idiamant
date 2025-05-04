@@ -4,6 +4,18 @@
 >
 >S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte.
 
+# 04/05/2025
+- Mise a jour librairie
+- Optimisations diverses
+- Ajout d'une commande STOP
+- Page santé avec champs triables
+
+# 01/05/2025
+- Mise a jour librairie
+
+# 30/04/2025
+- Ajout bouton de synchronisation forcée des équipements
+
 # 29/04/2025
 - Mise a jour librairie
 

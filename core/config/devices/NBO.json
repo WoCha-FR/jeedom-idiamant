@@ -71,6 +71,21 @@
       }
     },
     {
+      "name": "Stop",
+      "logicalId": "positionStop",
+      "type": "action",
+      "subType": "other",
+      "value": "position",
+      "generic_type": "FLAP_STOP",
+      "configuration": {
+        "message": "-1"
+      },
+      "template": {
+        "dashboard": "core::default",
+        "mobile": "core::default"
+      }
+    },
+    {
       "name":"Statut RF",
       "logicalId" : "rfstatus",
       "type":"info",

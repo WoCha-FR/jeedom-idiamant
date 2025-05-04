@@ -26,7 +26,13 @@ $eqLogics = eqLogic::byType($plugin->getId());
 <div class="row row-overflow">
   <div class="col-xs-12 eqLogicThumbnailDisplay">
     <legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
+    <!-- Boutons de gestion du plugin -->
     <div class="eqLogicThumbnailContainer">
+      <div class="cursor logoSecondary" id="bt_syncVolets">
+        <i class="fas fa-sync-alt"></i>
+        <br>
+        <span>{{Synchronisation}}</span>
+      </div>
       <div class="cursor eqLogicAction logoSecondary" data-action="gotoPluginConf">
         <i class="fas fa-wrench"></i>
         <br>
@@ -34,7 +40,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
       </div>
       <div class="cursor logoSecondary" id="bt_healthiDiamant">
         <i class="fas fa-medkit"></i>
-        <br/>
+        <br />
         <span>{{Santé}}</span>
       </div>
     </div>
@@ -136,22 +142,28 @@ $eqLogics = eqLogic::byType($plugin->getId());
 
             <div class="col-lg-6">
               <legend><i class="fas fa-info"></i> {{Informations}}</legend>
-                
+              <div class="form-group">
+                <label class="col-sm-2 control-label">{{Maison}}</label>
+                <div class="col-sm-6">
+                  <span class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="homename"></span>
+                </div>
+              </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">{{Type}}</label>
                 <div class="col-sm-8">
-                  <select disabled class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="device" disabled>
+                  <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="device" disabled>
                     <option value="NBG" data-img="NBG.png">{{Passerelle}}</option>
                     <option value="NBR" data-img="NBR.png">{{Volet}}</option>
+                    <option value="NBO" data-img="NBO.png">{{Volet Orientable}}</option>
+                    <option value="NBS" data-img="NBS.png">{{Volet Oscillant}}</option>
                   </select>
                 </div>
               </div>
-
               <div class="form-group">
                 <label class="col-sm-2 control-label"></label>
                 <div class="col-sm-8">
                   <div style="height:220px;display:flex;justify-content:center;align-items:center;">
-                  <img src="plugins/mqttiDiamant/plugin_info/mqttiDiamant_icon.png" data-original=".jpg" id="img_device" class="img-responsive" style="max-height:200px;max-width:200px;" onerror="this.src='plugins/mqttiDiamant/plugin_info/mqttiDiamant_icon.png'" />
+                    <img src="plugins/mqttiDiamant/plugin_info/mqttiDiamant_icon.png" data-original=".jpg" id="img_device" class="img-responsive" style="max-height:200px;max-width:200px;" onerror="this.src='plugins/mqttiDiamant/plugin_info/mqttiDiamant_icon.png'" />
                   </div>
                 </div>
               </div>
@@ -186,5 +198,5 @@ $eqLogics = eqLogic::byType($plugin->getId());
   </div>
 </div>
 
-<?php include_file('desktop', 'mqttiDiamant', 'js', 'mqttiDiamant');?>
-<?php include_file('core', 'plugin.template', 'js');?>
+<?php include_file('desktop', 'mqttiDiamant', 'js', 'mqttiDiamant'); ?>
+<?php include_file('core', 'plugin.template', 'js'); ?>
